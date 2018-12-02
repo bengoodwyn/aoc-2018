@@ -6,6 +6,8 @@
 #include "day1.hpp"
 #include "day2.hpp"
 
+static_assert(529 == day1part1(day1));
+
 int main(int argc, char** argv) {
   std::cout << "Day 1 Part 1: " << day1part1(day1) << std::endl;
   std::cout << "Day 1 Part 2: " << day1part2(day1) << std::endl;
