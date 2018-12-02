@@ -1,7 +1,7 @@
 #pragma once
 #include <array>
 
-constexpr std::array<int,951> day1{
+constexpr std::array<const int,951> day1{
   -10,
   -12,
   +1,

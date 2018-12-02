@@ -8,25 +8,25 @@
 #include <array>
 #include <optional>
 
-constexpr auto compare_box_ids = [](auto box_id_a, auto box_id_b) {
+constexpr auto compare_box_ids = [](const auto box_id_a, const auto box_id_b) {
   std::string result{};
   ranges::v3::for_each(
     ranges::view::zip(box_id_a, box_id_b)
-      | ranges::view::filter([](auto pair) {return std::get<0>(pair)==std::get<1>(pair);})
-      | ranges::view::transform([](auto pair) {return std::get<0>(pair);}),
-    [&](auto x) { result += x; }
+      | ranges::view::filter([](const auto pair) {return std::get<0>(pair)==std::get<1>(pair);})
+      | ranges::view::transform([](const auto pair) {return std::get<0>(pair);}),
+    [&](const auto x) { result += x; }
   );
   return result;
 };
 
-constexpr auto day2part2 = [](auto box_ids) {
+constexpr auto day2part2 = [](const auto box_ids) {
   std::optional<std::string> result{};
   ranges::v3::for_each(
     ranges::view::cartesian_product(box_ids, box_ids)
-      | ranges::view::transform([](auto pair) { return std::make_tuple(std::get<0>(pair), compare_box_ids(std::get<0>(pair), std::get<1>(pair))); })
-      | ranges::view::filter([](auto pair) { return std::get<1>(pair).length() == (std::get<0>(pair).length()-1); })
-      | ranges::view::transform([](auto pair) { return std::get<1>(pair); })
+      | ranges::view::transform([](const auto pair) { return std::make_tuple(std::get<0>(pair), compare_box_ids(std::get<0>(pair), std::get<1>(pair))); })
+      | ranges::view::filter([](const auto pair) { return std::get<1>(pair).length() == (std::get<0>(pair).length()-1); })
+      | ranges::view::transform([](const auto pair) { return std::get<1>(pair); })
       | ranges::view::take(1),
-    [&](auto x) { result = x; });
+    [&](const auto x) { result = x; });
   return result;
 };

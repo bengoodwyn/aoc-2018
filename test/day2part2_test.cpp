@@ -1,8 +1,9 @@
 #include <gtest/gtest.h>
 #include <array>
+#include <string_view>
 #include "day2part2.hpp"
 
-const std::array<std::string,7> example_box_ids{
+constexpr std::array<const std::string_view,7> example_box_ids{
   "abcde",
   "fghij",
   "klmno",
@@ -23,7 +24,7 @@ TEST(Day2Part2, fghij_fguij) {
 }
 
 TEST(Day2Part2, no_match) {
-  ASSERT_FALSE(day2part2(std::array<std::string,0>{}).has_value());
+  ASSERT_FALSE(day2part2(std::array<const std::string_view,0>{}).has_value());
 }
 
 TEST(Day2Part2, day2part2) {

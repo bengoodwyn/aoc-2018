@@ -2,7 +2,7 @@
 #include <array>
 #include <string_view>
 
-constexpr std::array<std::string_view, 250> day2{
+constexpr std::array<const std::string_view, 250> day2{
   "bazvmqthjtrnlosiecxyghkwud",
   "pazvmqbijirzlosiecxyghkwud",
   "pazvtqbmjtrnlosiecxyghkwzd",
