@@ -1,3 +1,4 @@
+#pragma once
 #include <range/v3/numeric/accumulate.hpp>
 
 //then starting from a frequency of zero,

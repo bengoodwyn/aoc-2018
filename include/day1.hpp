@@ -1,3 +1,4 @@
+#pragma once
 #include <array>
 
 constexpr std::array<int,951> day1{
