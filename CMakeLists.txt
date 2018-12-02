@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.9)
 
 set(CMAKE_CXX_STANDARD 17)
 
-include_directories(include /usr/local/include)
+include_directories(include /usr/local/include vendor/range-v3/include)
 add_subdirectory(vendor/googletest)
 
 project(aoc-2018)

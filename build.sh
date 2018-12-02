@@ -24,4 +24,5 @@ pushd ${BUILDPATH}
 cmake -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE} ..
 export GTEST_COLOR=1
 make all test ARGS=--verbose
+./aoc-2018
 popd
