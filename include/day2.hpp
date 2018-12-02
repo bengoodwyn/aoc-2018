@@ -1,8 +1,8 @@
 #pragma once
 #include <array>
-#include <string>
+#include <string_view>
 
-const std::array<std::string, 250> day2{
+constexpr std::array<std::string_view, 250> day2{
   "bazvmqthjtrnlosiecxyghkwud",
   "pazvmqbijirzlosiecxyghkwud",
   "pazvtqbmjtrnlosiecxyghkwzd",

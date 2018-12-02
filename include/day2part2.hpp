@@ -9,7 +9,7 @@
 #include <optional>
 
 constexpr auto compare_box_ids = [](auto box_id_a, auto box_id_b) {
-  decltype(box_id_a) result{};
+  std::string result{};
   ranges::v3::for_each(
     ranges::view::zip(box_id_a, box_id_b)
       | ranges::view::filter([](auto pair) {return std::get<0>(pair)==std::get<1>(pair);})
