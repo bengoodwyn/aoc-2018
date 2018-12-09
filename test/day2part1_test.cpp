@@ -3,6 +3,7 @@
 #include <string>
 #include <string_view>
 #include "day2part1.hpp"
+#include "input.hpp"
 
 TEST(Day2Part1, abcdef) {
   // abcdef contains no letters that appear exactly two or three times.
@@ -49,28 +50,27 @@ TEST(Day2Part1, ababab) {
   ASSERT_TRUE(has_three);
 }
 
-constexpr std::array<const std::string_view,7> example_box_ids{
-    "abcdef",
-    "bababc",
-    "abbcde",
-    "abcccd",
-    "aabcdd",
-    "abcdee",
-    "ababab"
-  };
+constexpr std::string_view example_box_ids =
+R"(abcdef
+bababc
+abbcde
+abcccd
+aabcdd
+abcdee
+ababab)";
 
 TEST(Day2Part1, CountTwosAndThrees) {
   // Of these box IDs, four of them contain a letter which appears exactly twice, and three of them contain a letter which appears exactly three times.
-  const auto [two_count, three_count] = count_twos_and_threes(example_box_ids);
+  const auto [two_count, three_count] = count_twos_and_threes(lines(input(example_box_ids)));
   ASSERT_EQ(two_count, 4);
   ASSERT_EQ(three_count, 3);
 }
 
 TEST(Day2Part1, Nothing) {
-  ASSERT_EQ(0, day2part1(std::array<std::string,0>{}));
+  ASSERT_EQ(0, day2part1(std::stringstream{}));
 }
 
 TEST(Day2Part1, Example) {
-  ASSERT_EQ(12, day2part1(example_box_ids));
+  ASSERT_EQ(12, day2part1(input(example_box_ids)));
 }
 

@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "day3part1.hpp"
+#include "input.hpp"
 
 TEST(Day3Part1, TestParseClaim) {
   constexpr std::string_view input = "#123 @ 3,2: 5x4";
@@ -71,12 +72,11 @@ TEST(Day3Part1, ExampleClaims) {
     result);
 }
 
-TEST(Day3Part1, Example) {
-  constexpr std::string_view input = R"(
-    #1 @ 1,3: 4x4
-    #2 @ 3,1: 4x4
-    #3 @ 5,5: 2x2
-  )";
+constexpr std::string_view example =
+R"(#1 @ 1,3: 4x4
+#2 @ 3,1: 4x4
+#3 @ 5,5: 2x2)";
 
-  ASSERT_EQ(4, day3part1(input));
+TEST(Day3Part1, Example) {
+  ASSERT_EQ(4, day3part1(input(example)));
 }

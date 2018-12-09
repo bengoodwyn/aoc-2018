@@ -18,16 +18,20 @@ constexpr auto is_uncontested_claim = [](const auto& claim_counts, const auto cl
   return true;
 };
 
-constexpr auto day3part2 = [](const auto input) {
+constexpr auto day3part2 = [](auto&& input) {
+  std::vector<std::string> claims;
+  while (!input.eof()) {
+    std::string line;
+    std::getline(input, line);
+    claims.push_back(line);
+  }
+
   constexpr auto SIZE = 1000;
   int claim_counts[SIZE][SIZE] = {0};
-  apply_claims(claim_counts, input);
+  apply_claims(claim_counts, claims);
 
-  std::stringstream in{std::string{input}};
-  std::string line;
-  while (!in.eof()) {
-    std::getline(in, line);
-    const auto claim = parse_claim(line);
+  for (const auto& claim_text: claims) {
+    const auto claim = parse_claim(claim_text);
     if (5 != claim.size()) continue;
     if (is_uncontested_claim(claim_counts, claim)) {
       return claim[0];

@@ -1,7 +1,8 @@
 #pragma once
+#include <string_view>
 
-constexpr std::string_view day3 = R"(
-#1 @ 755,138: 26x19
+constexpr std::string_view day3 =
+R"(#1 @ 755,138: 26x19
 #2 @ 952,518: 15x24
 #3 @ 304,90: 28x12
 #4 @ 237,265: 17x13
@@ -1307,5 +1308,4 @@ constexpr std::string_view day3 = R"(
 #1304 @ 550,445: 13x24
 #1305 @ 163,257: 22x24
 #1306 @ 932,665: 19x11
-#1307 @ 42,472: 13x14
-)";
+#1307 @ 42,472: 13x14)";

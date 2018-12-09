@@ -6,7 +6,6 @@
 #include <range/v3/view/transform.hpp>
 #include <range/v3/view/zip.hpp>
 #include <array>
-#include <optional>
 
 constexpr auto compare_box_ids = [](const auto box_id_a, const auto box_id_b) {
   std::string result{};
@@ -19,8 +18,15 @@ constexpr auto compare_box_ids = [](const auto box_id_a, const auto box_id_b) {
   return result;
 };
 
-constexpr auto day2part2 = [](const auto box_ids) {
-  std::optional<std::string> result{};
+constexpr auto day2part2 = [](auto&& input) {
+  std::vector<std::string> box_ids{};
+  while (not input.eof()) {
+    std::string line{};
+    std::getline(input, line);
+    box_ids.push_back(line);
+  }
+
+  std::string result{};
   ranges::v3::for_each(
     ranges::view::cartesian_product(box_ids, box_ids)
       | ranges::view::transform([](const auto pair) { return std::make_tuple(std::get<0>(pair), compare_box_ids(std::get<0>(pair), std::get<1>(pair))); })

@@ -2,7 +2,6 @@
 #include <boost/algorithm/string/split.hpp>
 #include <vector>
 #include <string>
-#include <sstream>
 
 constexpr auto parse_claim = [](const auto input) {
   std::vector<std::string> nums;
@@ -17,7 +16,7 @@ constexpr auto parse_claim = [](const auto input) {
   return parsed;
 };
 
-constexpr auto apply_claim = [](auto& claim_counts, const auto claim) {
+constexpr auto apply_claim = [](auto& claim_counts, const auto& claim) {
   const auto left = claim[1];
   const auto top = claim[2];
   const auto width = claim[3];
@@ -30,21 +29,25 @@ constexpr auto apply_claim = [](auto& claim_counts, const auto claim) {
   }
 };
 
-constexpr auto apply_claims = [](auto& claim_counts, const auto input) {
-  std::stringstream in{std::string{input}};
-  std::string line;
-  while (!in.eof()) {
-    std::getline(in, line);
-    const auto claim = parse_claim(line);
+constexpr auto apply_claims = [](auto& claim_counts, const auto& claims) {
+  for (const auto& claim_text: claims) {
+    const auto claim = parse_claim(claim_text);
     if (5 != claim.size()) continue;
     apply_claim(claim_counts, claim);
   }
 };
 
-constexpr auto day3part1 = [](const auto input) {
+constexpr auto day3part1 = [](auto&& input) {
+  std::vector<std::string> claims;
+  while (!input.eof()) {
+    std::string line;
+    std::getline(input, line);
+    claims.push_back(line);
+  }
+
   constexpr auto SIZE = 1000;
   int claim_counts[SIZE][SIZE] = {0};
-  apply_claims(claim_counts, input);
+  apply_claims(claim_counts, claims);
   int overlap_squares = 0;
   for (auto row = 0; row < SIZE; ++row) {
     for (auto col = 0; col < SIZE; ++col) {

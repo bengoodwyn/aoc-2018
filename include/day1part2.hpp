@@ -3,11 +3,19 @@
 #include <range/v3/view/cycle.hpp>
 #include <range/v3/view/take_while.hpp>
 #include <boost/container/flat_set.hpp>
+#include <vector>
 #include "day1part1.hpp"
 
-constexpr auto day1part2 = [](const auto& frequency_changes) {
+constexpr auto day1part2 = [](auto&& input) {
   auto current_frequency = initial_frequency;
   boost::container::flat_set<decltype(current_frequency)> previous_frequencies{};
+
+  std::vector<int> frequency_changes{};
+  std::string line;
+  while (not input.eof()) {
+    std::getline(input, line);
+    frequency_changes.push_back(std::stoi(line));
+  }
 
   ranges::v3::for_each(
     ranges::view::cycle(frequency_changes)

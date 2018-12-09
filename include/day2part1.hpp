@@ -3,6 +3,8 @@
 #include <range/v3/algorithm/any_of.hpp>
 #include <range/v3/view/transform.hpp>
 #include <array>
+#include <vector>
+#include <string>
 #include <tuple>
 
 constexpr auto parse_box_id = [](const auto box_id) {
@@ -31,7 +33,14 @@ constexpr auto count_twos_and_threes = [](const auto& box_ids) {
   return std::make_tuple(twos, threes);;
 };
 
-constexpr auto day2part1 = [](const auto box_ids) {
+constexpr auto day2part1 = [](auto&& input) {
+  std::vector<std::string> box_ids{};
+  while (not input.eof()) {
+    std::string line{};
+    std::getline(input, line);
+    box_ids.push_back(line);
+  }
+
   const auto [twos, threes] = count_twos_and_threes(box_ids);
   return twos * threes;
 };
