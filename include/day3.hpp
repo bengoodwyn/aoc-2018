@@ -1,7 +1,9 @@
 #pragma once
-#include <string_view>
+#include <string>
+#include "input.hpp"
 
-constexpr std::string_view day3 =
+constexpr auto day3 = []() {
+  return input(std::string{
 R"(#1 @ 755,138: 26x19
 #2 @ 952,518: 15x24
 #3 @ 304,90: 28x12
@@ -1308,4 +1310,6 @@ R"(#1 @ 755,138: 26x19
 #1304 @ 550,445: 13x24
 #1305 @ 163,257: 22x24
 #1306 @ 932,665: 19x11
-#1307 @ 42,472: 13x14)";
+#1307 @ 42,472: 13x14)"
+  });
+};

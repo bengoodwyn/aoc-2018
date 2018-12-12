@@ -1,7 +1,9 @@
 #pragma once
-#include <string_view>
+#include <string>
+#include "input.hpp"
 
-constexpr std::string_view day2 =
+constexpr auto day2 = []() {
+  return input(std::string{
 R"(bazvmqthjtrnlosiecxyghkwud
 pazvmqbijirzlosiecxyghkwud
 pazvtqbmjtrnlosiecxyghkwzd
@@ -251,4 +253,6 @@ pazcmqbfjtrnlosiecxyihkwuf
 pszvmqbfjtrnnosiacxyghkwud
 aazvmqbfjtrnlosieyxyghkwld
 pazvrqbfntrnlosiycxyghkwud
-pkzvoqbfjtrnlosiecxyghxwud)";
+pkzvoqbfjtrnlosiecxyghxwud)"
+  });
+};

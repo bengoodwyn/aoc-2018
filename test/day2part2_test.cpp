@@ -1,17 +1,17 @@
 #include <gtest/gtest.h>
 #include <string>
-#include <string_view>
 #include "day2part2.hpp"
 #include "input.hpp"
 
-constexpr std::string_view example_box_ids =
+const std::string example_box_ids{
 R"(abcde
 fghij
 klmno
 pqrst
 fguij
 axcye
-wvxyz)";
+wvxyz)"
+};
 
 TEST(Day2Part2, abcde_axcye) {
   // The IDs abcde and axcye are close, but they differ by two characters (the second and fourth).

@@ -1,7 +1,6 @@
 #include <gtest/gtest.h>
 #include <array>
 #include <string>
-#include <string_view>
 #include "day2part1.hpp"
 #include "input.hpp"
 
@@ -50,14 +49,15 @@ TEST(Day2Part1, ababab) {
   ASSERT_TRUE(has_three);
 }
 
-constexpr std::string_view example_box_ids =
+const std::string example_box_ids{
 R"(abcdef
 bababc
 abbcde
 abcccd
 aabcdd
 abcdee
-ababab)";
+ababab)"
+};
 
 TEST(Day2Part1, CountTwosAndThrees) {
   // Of these box IDs, four of them contain a letter which appears exactly twice, and three of them contain a letter which appears exactly three times.

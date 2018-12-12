@@ -3,8 +3,8 @@
 #include <string>
 #include <vector>
 
-constexpr auto input = [](const auto view) {
-  return std::stringstream{std::string{view}};
+constexpr auto input = [](const auto& text) {
+  return std::stringstream{text};
 };
 
 constexpr auto lines = [](auto&& input) {

@@ -1,7 +1,9 @@
 #pragma once
-#include <string_view>
+#include <string>
+#include "input.hpp"
 
-constexpr std::string_view day1 =
+constexpr auto day1 = []() {
+  return input(std::string{
 R"(-10
 -12
 +1
@@ -952,4 +954,6 @@ R"(-10
 -21
 +8
 +14
-+75784)";
++75784)"
+  });
+};

@@ -3,7 +3,7 @@
 #include "input.hpp"
 
 TEST(Day3Part1, TestParseClaim) {
-  constexpr std::string_view input = "#123 @ 3,2: 5x4";
+  const std::string input{"#123 @ 3,2: 5x4"};
 
   const auto parsed = parse_claim(input);
   ASSERT_EQ(5, parsed.size());
@@ -72,10 +72,11 @@ TEST(Day3Part1, ExampleClaims) {
     result);
 }
 
-constexpr std::string_view example =
+const std::string example{
 R"(#1 @ 1,3: 4x4
 #2 @ 3,1: 4x4
-#3 @ 5,5: 2x2)";
+#3 @ 5,5: 2x2)"
+};
 
 TEST(Day3Part1, Example) {
   ASSERT_EQ(4, day3part1(input(example)));
