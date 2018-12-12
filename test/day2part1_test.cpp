@@ -3,6 +3,7 @@
 #include <string>
 #include "day2part1.hpp"
 #include "input.hpp"
+#include "lines.hpp"
 
 TEST(Day2Part1, abcdef) {
   // abcdef contains no letters that appear exactly two or three times.

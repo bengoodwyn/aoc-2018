@@ -3,6 +3,7 @@
 #include <range/v3/view/transform.hpp>
 #include <string>
 #include "input.hpp"
+#include "lines.hpp"
 
 //then starting from a frequency of zero,
 constexpr auto initial_frequency = 0;
